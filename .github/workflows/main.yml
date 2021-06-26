@@ -8,7 +8,7 @@ on:
 env:
   GIT_USER: 1044934446@qq.com
   GIT_EMAIL: 1044934446@qq.com
-  THEME_REPO: https://github.com/bulandent/hexo-theme-bubuzou
+  THEME_REPO: bulandent/hexo-theme-bubuzou
   THEME_BRANCH: master
   DEPLOY_REPO: nashitongku/nashitongku.github.io
   DEPLOY_BRANCH: master
