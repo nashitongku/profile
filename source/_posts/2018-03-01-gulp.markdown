@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "gulp 初探"
+date:   2018-03-01 23:14:05 +0800
+categories: gulp
+tags: [gulp] 
+excerpt: gulp构建一个小项目
+---
+
+*** 
+
+ gulp的最初设计目的是拟合市场。
+ 首先概述下gulp。 gulp是基于nodejs的自动化构建工具。 
+ gulp的流控制很好理解，就是文件的处理分成多个有序步骤。   
+ 
+*** 
+今天看了下gulp,现在总结一下,并且构建一个能够监听后缀为less的文件，  
+ 当文件被修改时能够重新处理代码的项目。  
+## 直接进入主题，构建一个简单的项目。 
+### 准备: 安装nodejs ，npm全局安装gulp （npm install --global gulp); 
+### 1. 创建package.json文件: npm init;</br>
+### 2. 安装依赖 npm install --save-dev gulp-less gulp-sourcemaps gulp-notify gulp-plumber  
+   简单说明下这些依赖的作用: 
+#####  gulp-less(用于处理less文件，转换成css)、  
+##### gulp-sourcemaps（信息文件，里面储存着位置信息、在代码出错时非常有用）、  
+##### gulp-notify（代码出错时，能弹窗界面提示）、  
+##### gulp-plumber（阻止代码出错时，中断gulp.watch）。 
+  
+###  3.创建文件 gulpfile.js;(<strong>入口文件</strong>) 
+###  输入下面代码
+```javascript
+var gulp = require('gulp');
+var less = require('gulp-less');
+var sourcemaps = require('gulp-sourcemaps');
+var plumber = require('gulp-plumber');
+var notify = require('gulp-notify');
+gulp.task('main',function(){
+	gulp.src('./*.less')
+	.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+	.pipe(sourcemaps.init())
+	.pipe(less())
+	.pipe(sourcemaps.write('./source'))
+	.pipe(gulp.dest('./css/'))
+})
+
+gulp.task('watchLess',function(){
+	gulp.watch('./*.less',['main']);
+})
+```
+
+  
+ 5.在当前文件目录下打开命令行，输入 `gulp watchLess`。
+
+ 

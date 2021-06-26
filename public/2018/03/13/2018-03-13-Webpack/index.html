@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> webpack图片优化 · Hexo</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="webpack图片优化 - John Doe"><meta name="keywords"><meta name="author" content="John Doe"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://example.com/atom.xml" title="Hexo"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/categories/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/categories/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">webpack图片优化</h1><div class="post-info">2018-03-13<p class="visit"><i data-identity="2018/03/13/2018-03-13-Webpack/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h1><h2 id="1-图片压缩工具（https-github-com-Klathmon-imagemin-webpack-plugin）"><a href="#1-图片压缩工具（https-github-com-Klathmon-imagemin-webpack-plugin）" class="headerlink" title="1.图片压缩工具（https://github.com/Klathmon/imagemin-webpack-plugin）"></a>1.图片压缩工具（<code>https://github.com/Klathmon/imagemin-webpack-plugin</code>）</h2><h1 id="Imagemin-plugin-for-Webpack"><a href="#Imagemin-plugin-for-Webpack" class="headerlink" title="Imagemin plugin for Webpack"></a>Imagemin plugin for Webpack</h1><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/imagemin-webpack-plugin"><img src="https://img.shields.io/npm/v/imagemin-webpack-plugin.svg" alt="npm"></a><br><a target="_blank" rel="noopener" href="http://standardjs.com/"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" alt="js-standard-style"></a><br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/imagemin-webpack-plugin"><img src="https://img.shields.io/npm/dt/imagemin-webpack-plugin.svg" alt="npm"></a></p>
+<p>This is a simple plugin that uses <a target="_blank" rel="noopener" href="https://github.com/imagemin/imagemin">Imagemin</a> to compress all images in your project.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p><code>npm install imagemin-webpack-plugin</code></p>
+<p>Requires node &gt;=4.0.0</p>
+<h2 id="Example-Usage"><a href="#Example-Usage" class="headerlink" title="Example Usage"></a>Example Usage</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ImageminPlugin = <span class="built_in">require</span>(<span class="string">&#x27;imagemin-webpack-plugin&#x27;</span>).default</span><br><span class="line"><span class="comment">// Or if using ES2015:</span></span><br><span class="line"><span class="comment">// import ImageminPlugin from &#x27;imagemin-webpack-plugin&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="comment">// Make sure that the plugin is after any plugins that add images</span></span><br><span class="line">    <span class="keyword">new</span> ImageminPlugin(&#123;</span><br><span class="line">      <span class="attr">disable</span>: process.env.NODE_ENV !== <span class="string">&#x27;production&#x27;</span>, <span class="comment">// Disable during development</span></span><br><span class="line">      <span class="attr">pngquant</span>: &#123;</span><br><span class="line">        <span class="attr">quality</span>: <span class="string">&#x27;95-100&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Working with <a target="_blank" rel="noopener" href="https://github.com/kevlened/copy-webpack-plugin">copy-webpack-plugin</a>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="comment">// Copy the images folder and optimize all the images</span></span><br><span class="line">    <span class="keyword">new</span> CopyWebpackPlugin([&#123;</span><br><span class="line">      <span class="attr">from</span>: <span class="string">&#x27;images/&#x27;</span></span><br><span class="line">    &#125;]),</span><br><span class="line">    <span class="keyword">new</span> ImageminPlugin(&#123; <span class="attr">test</span>: <span class="regexp">/\.(jpe?g|png|gif|svg)$/i</span> &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="new-ImageminPlugin-options"><a href="#new-ImageminPlugin-options" class="headerlink" title="new ImageminPlugin(options)"></a>new ImageminPlugin(options)</h3><h4 id="options-disable"><a href="#options-disable" class="headerlink" title="options.disable"></a>options.disable</h4><p><strong>type</strong>: <code>Boolean</code><br><strong>default</strong>: <code>false</code></p>
+<p>When set to <code>true</code> it will disable the plugin entirely. This is useful for disabling the plugin during development, and only enabling it during production</p>
+<h4 id="options-test"><a href="#options-test" class="headerlink" title="options.test"></a>options.test</h4><p><strong>type</strong>: <code>RegExp</code> or <code>String</code> or <code>Array</code><br><strong>default</strong>: <code>/.*/</code></p>
+<p>This plugin will only run on files that match this test. This is similar to the webpack loader <code>test</code> option (but is not using the same implementation, so there might be major differences!). This can either be a RegExp object, a <a target="_blank" rel="noopener" href="https://github.com/isaacs/minimatch">minimatch glob</a>, a function which gets the filename and returns <code>true</code> if the file should be minified, or an array of any of them.</p>
+<p>This can allow you to only run the plugin on specific files, or even include the plugin multiple times for different sets of images and apply different imagemin settings to each.</p>
+<p>This will overwrite everything, including the <code>externalImages</code> option!</p>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ImageminPlugin <span class="keyword">from</span> <span class="string">&#x27;imagemin-webpack-plugin&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="comment">// Use the default settings for everything in /images/*</span></span><br><span class="line">    <span class="keyword">new</span> ImageminPlugin(&#123; <span class="attr">test</span>: <span class="string">&#x27;images/**&#x27;</span> &#125;),</span><br><span class="line">    <span class="comment">// bump up the optimization level for all the files in my `bigpngs` directory</span></span><br><span class="line">    <span class="keyword">new</span> ImageminPlugin(&#123;</span><br><span class="line">      <span class="attr">test</span>: <span class="string">&#x27;bigpngs/**&#x27;</span>,</span><br><span class="line">      <span class="attr">optipng</span>: &#123;</span><br><span class="line">        <span class="attr">optimizationLevel</span>: <span class="number">9</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Note the order of the plugins matters. <code>CopyWebpackPlugin</code> must be before <code>ImageminWebpackPlugin</code> in the <code>plugins</code> array.</p>
+<h4 id="options-maxConcurrency"><a href="#options-maxConcurrency" class="headerlink" title="options.maxConcurrency"></a>options.maxConcurrency</h4><p><strong>type</strong>: <code>Number</code><br><strong>default</strong>: the number of logical CPUS on the system</p>
+<p>Sets the maximum number of instances of Imagemin that can run at once. Set to <code>Infinity</code> to run a seperate process per image all at the same time.</p>
+<h4 id="options-optipng"><a href="#options-optipng" class="headerlink" title="options.optipng"></a>options.optipng</h4><p><strong>type</strong>: <code>Object</code> or <code>null</code><br><strong>default</strong>: <code>&#123; optimizationLevel: 3 &#125;</code></p>
+<p>Passes the given object to <a target="_blank" rel="noopener" href="https://github.com/imagemin/imagemin-optipng"><code>imagemin-optipng</code></a>. Set to <code>null</code> to disable optipng.</p>
+<h4 id="options-gifsicle"><a href="#options-gifsicle" class="headerlink" title="options.gifsicle"></a>options.gifsicle</h4><p><strong>type</strong>: <code>Object</code> or <code>null</code><br><strong>default</strong>: <code>&#123; optimizationLevel: 1 &#125;</code></p>
+<p>Passes the given object to <a target="_blank" rel="noopener" href="https://github.com/imagemin/imagemin-gifsicle"><code>imagemin-gifsicle</code></a>. Set to <code>null</code> to disable gifsicle.</p>
+<h4 id="options-jpegtran"><a href="#options-jpegtran" class="headerlink" title="options.jpegtran"></a>options.jpegtran</h4><p><strong>type</strong>: <code>Object</code> or <code>null</code><br><strong>default</strong>: <code>&#123; progressive: false &#125;</code></p>
+<p>Passes the given object to <a target="_blank" rel="noopener" href="https://github.com/imagemin/imagemin-jpegtran"><code>imagemin-jpegtran</code></a>. Set to <code>null</code> to disable jpegtran.</p>
+<h4 id="options-svgo"><a href="#options-svgo" class="headerlink" title="options.svgo"></a>options.svgo</h4><p><strong>type</strong>: <code>Object</code> or <code>null</code><br><strong>default</strong>: <code>&#123;&#125;</code></p>
+<p>Passes the given object to <a target="_blank" rel="noopener" href="https://github.com/imagemin/imagemin-svgo"><code>imagemin-svgo</code></a>. Set to <code>null</code> to disable svgo.</p>
+<h4 id="options-pngquant"><a href="#options-pngquant" class="headerlink" title="options.pngquant"></a>options.pngquant</h4><p><strong>type</strong>: <code>Object</code> or <code>null</code><br><strong>default</strong>: <code>null</code></p>
+<p>Passes the given object to <a target="_blank" rel="noopener" href="https://github.com/imagemin/imagemin-pngquant"><code>imagemin-pngquant</code></a>. Disabled by default.</p>
+<h4 id="options-plugins"><a href="#options-plugins" class="headerlink" title="options.plugins"></a>options.plugins</h4><p><strong>type</strong>: <code>Array</code><br><strong>default</strong>: <code>[]</code></p>
+<p>Include any additional plugins that you want to work with imagemin here. By default the above are included, but if you want (or need to) you can disable them (by setting them to <code>null</code>) and include them yourself here.</p>
+<p>A list of possible imagemin plugins can be found <a target="_blank" rel="noopener" href="https://www.npmjs.com/search?q=imagemin%20plugin">here</a>.</p>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ImageminPlugin <span class="keyword">from</span> <span class="string">&#x27;imagemin-webpack-plugin&#x27;</span></span><br><span class="line"><span class="keyword">import</span> imageminMozjpeg <span class="keyword">from</span> <span class="string">&#x27;imagemin-mozjpeg&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> ImageminPlugin(&#123;</span><br><span class="line">      <span class="attr">plugins</span>: [</span><br><span class="line">        imageminMozjpeg(&#123;</span><br><span class="line">          <span class="attr">quality</span>: <span class="number">100</span>,</span><br><span class="line">          <span class="attr">progressive</span>: <span class="literal">true</span></span><br><span class="line">        &#125;)</span><br><span class="line">      ]</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="options-externalImages"><a href="#options-externalImages" class="headerlink" title="options.externalImages"></a>options.externalImages</h4><p><strong>type</strong>: <code>Object</code><br><strong>default</strong>: <code>&#123; context: &#39;.&#39;, sources: [], destination: null &#125;</code></p>
+<p>Include any external images (those not included in webpack’s compilation assets) that you want to be parsed by imagemin.<br>If a destination value is not supplied the files are optimized in place. You can optionally set either of these to a function which will be invoked at the last possible second before optimization to grab files that might not exist at the time of writing the config (see #37 for more info).</p>
+<p>The paths will work based on the webpack’s (and this plugin’s) <code>context</code> option, so in the following example, the files will be read from <code>./src/images/**/*.png</code> and will be written to <code>.src/public/images/**/*.png</code> Context only applies to the <code>sources</code> array.</p>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ImageminPlugin <span class="keyword">from</span> <span class="string">&#x27;imagemin-webpack-plugin&#x27;</span></span><br><span class="line"><span class="keyword">import</span> glob <span class="keyword">from</span> <span class="string">&#x27;glob&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> ImageminPlugin(&#123;</span><br><span class="line">      <span class="attr">externalImages</span>: &#123;</span><br><span class="line">        <span class="attr">context</span>: <span class="string">&#x27;src&#x27;</span>, <span class="comment">// Important! This tells the plugin where to &quot;base&quot; the paths at</span></span><br><span class="line">        <span class="attr">sources</span>: glob.sync(<span class="string">&#x27;src/images/**/*.png&#x27;</span>),</span><br><span class="line">        <span class="attr">destination</span>: <span class="string">&#x27;src/public/images&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="options-minFileSize"><a href="#options-minFileSize" class="headerlink" title="options.minFileSize"></a>options.minFileSize</h4><p><strong>type</strong>: <code>Integer</code><br><strong>default</strong>: <code>0</code></p>
+<p>Only apply to images that are <strong>larger</strong> than this value <em>in bytes</em>.</p>
+<h4 id="options-maxFileSize"><a href="#options-maxFileSize" class="headerlink" title="options.maxFileSize"></a>options.maxFileSize</h4><p><strong>type</strong>: <code>Integer</code><br><strong>default</strong>: <code>Infinity</code></p>
+<p>Only apply to images that are <strong>smaller than or equal-to</strong> this value <em>in bytes</em>.</p>
+<p>This and <code>minFileSize</code> together can be used to include WebpackImageminPlugin multiple times with multiple configs on different file sizes.</p>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ImageminPlugin <span class="keyword">from</span> <span class="string">&#x27;imagemin-webpack-plugin&#x27;</span></span><br><span class="line"><span class="keyword">import</span> glob <span class="keyword">from</span> <span class="string">&#x27;glob&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> ImageminPlugin(&#123;</span><br><span class="line">      <span class="attr">maxFileSize</span>: <span class="number">10000</span>, <span class="comment">// Only apply this one to files equal to or under 10kb</span></span><br><span class="line">      <span class="attr">jpegtran</span>: &#123; <span class="attr">progressive</span>: <span class="literal">false</span> &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> ImageminPlugin(&#123;</span><br><span class="line">      <span class="attr">minFileSize</span>: <span class="number">10000</span>, <span class="comment">// Only apply this one to files over 10kb</span></span><br><span class="line">      <span class="attr">jpegtran</span>: &#123; <span class="attr">progressive</span>: <span class="literal">true</span> &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="options-cacheFolder"><a href="#options-cacheFolder" class="headerlink" title="options.cacheFolder"></a>options.cacheFolder</h4><p><strong>type</strong>: <code>String</code><br><strong>default</strong>: <code>&#39;&#39;</code></p>
+<p>Cache already minified images into a <code>cacheFolder</code>. On next run plugin will<br>check for the cached images first. If cached image exists it will simply use that one.<br>Otherwise image will be optimised and written to the <code>cacheFolder</code> for later builds.</p>
+<p><strong>Note</strong>: This is a very simple cache implementation, it WILL NOT intelligently clear the<br>cache if you update the options in this plugin. There also might be significantly more files in the cache than you have images, this is normal, and a side-effect of how I’m deferring to <code>imagemin</code> to determine if a file is an image or not. It can be prevented by setting a good <code>test</code> regex.</p>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> resolve <span class="keyword">from</span> <span class="string">&#x27;path&#x27;</span></span><br><span class="line"><span class="keyword">import</span> ImageminPlugin <span class="keyword">from</span> <span class="string">&#x27;imagemin-webpack-plugin&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> ImageminPlugin(&#123;</span><br><span class="line">      <span class="attr">cacheFolder</span>: resolve(<span class="string">&#x27;./cache&#x27;</span>), <span class="comment">// use existing folder called cache in the current dir</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="以上说明来自官方仓库"><a href="#以上说明来自官方仓库" class="headerlink" title="以上说明来自官方仓库"></a>以上说明来自官方仓库</h3></div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2018/03/13/2018-04-15-Protocol/" title="http协议" class="prev">PREV</a><a href="/2018/03/01/2018-03-01-gulp/" title="gulp 初探" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2016 - 2021 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>
