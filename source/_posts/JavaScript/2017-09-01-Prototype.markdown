@@ -2,8 +2,7 @@
 layout: post
 title:  "JavaScript原型"
 date:   2017-09-01 23:14:05 +0800
-category: javascript
-categories: javascript
+categories: [JavaScript]
 tags: [javascript] 
 excerpt: javascript原型的理解
 ---

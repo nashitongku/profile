@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-06-26T16:41:35.665Z</updated>
+  <updated>2021-06-27T10:30:30.507Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,34 +21,16 @@
     <link href="http://example.com/2021/06/27/2018-03-18-ssh/"/>
     <id>http://example.com/2021/06/27/2018-03-18-ssh/</id>
     <published>2021-06-26T16:54:46.665Z</published>
-    <updated>2021-06-26T16:41:35.665Z</updated>
+    <updated>2021-06-27T10:30:30.507Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="ssh多个秘钥管理"><a href="#ssh多个秘钥管理" class="headerlink" title="ssh多个秘钥管理"></a>ssh多个秘钥管理</h1><h5 id="ssh-agent服务"><a href="#ssh-agent服务" class="headerlink" title="ssh-agent服务"></a>ssh-agent服务</h5><h6 id="管理员模式启动Windows-PowerShell"><a href="#管理员模式启动Windows-PowerShell" class="headerlink" title="管理员模式启动Windows PowerShell"></a>管理员模式启动<strong>Windows PowerShell</strong></h6><h6 id="1-使用下面两个命令行启动ssh-agent服务"><a href="#1-使用下面两个命令行启动ssh-agent服务" class="headerlink" title="1.使用下面两个命令行启动ssh-agent服务"></a>1.使用下面两个命令行启动<em><strong>ssh-agent服务</strong></em></h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Service -Name ssh-agent -StartupType Manual</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Start-Service ssh-agent</span><br></pre></td></tr></table></figure><p>2.添加到代理</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/自定义秘钥名称</span><br></pre></td></tr></table></figure><h3 id="3-配置git"><a href="#3-配置git" class="headerlink" title="3.配置git"></a>3.配置git</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email “1044934446@qq.com”</span><br></pre></td></tr></table></figure><p>4.生成密钥</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;ssh多个秘钥管理&quot;&gt;&lt;a href=&quot;#ssh多个秘钥管理&quot; class=&quot;headerlink&quot; title=&quot;ssh多个秘钥管理&quot;&gt;&lt;/a&gt;ssh多个秘钥管理&lt;/h1&gt;&lt;h5 id=&quot;ssh-agent服务&quot;&gt;&lt;a href=&quot;#ssh-agent服务&quot; c</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2021/06/26/hello-world/"/>
-    <id>http://example.com/2021/06/26/hello-world/</id>
-    <published>2021-06-26T11:47:03.866Z</published>
-    <updated>1985-10-26T08:15:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="ssh多个秘钥管理"><a href="#ssh多个秘钥管理" class="headerlink" title="ssh多个秘钥管理"></a>ssh多个秘钥管理</h1><hr><p>title: ssh</p><h2 id="date-2018-7-13-20-46-25"><a href="#date-2018-7-13-20-46-25" class="headerlink" title="date: 2018/7/13 20:46:25"></a>date: 2018/7/13 20:46:25</h2><h5 id="ssh-agent服务"><a href="#ssh-agent服务" class="headerlink" title="ssh-agent服务"></a>ssh-agent服务</h5><h6 id="管理员模式启动Windows-PowerShell"><a href="#管理员模式启动Windows-PowerShell" class="headerlink" title="管理员模式启动Windows PowerShell"></a>管理员模式启动<strong>Windows PowerShell</strong></h6><h6 id="1-使用下面两个命令行启动ssh-agent服务"><a href="#1-使用下面两个命令行启动ssh-agent服务" class="headerlink" title="1.使用下面两个命令行启动ssh-agent服务"></a>1.使用下面两个命令行启动<em><strong>ssh-agent服务</strong></em></h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Service -Name ssh-agent -StartupType Manual</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Start-Service ssh-agent</span><br></pre></td></tr></table></figure><p>2.添加到代理</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/自定义秘钥名称</span><br></pre></td></tr></table></figure><h3 id="3-配置git"><a href="#3-配置git" class="headerlink" title="3.配置git"></a>3.配置git</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email “1044934446@qq.com”</span><br></pre></td></tr></table></figure><p>4.生成密钥</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+    <summary type="html">&lt;h1 id=&quot;ssh多个秘钥管理&quot;&gt;&lt;a href=&quot;#ssh多个秘钥管理&quot; class=&quot;headerlink&quot; title=&quot;ssh多个秘钥管理&quot;&gt;&lt;/a&gt;ssh多个秘钥管理&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;title: ssh&lt;/p&gt;
+&lt;h2 id=&quot;date-2018-7-13</summary>
       
     
     
@@ -79,8 +61,8 @@
   
   <entry>
     <title>npm script</title>
-    <link href="http://example.com/2018/04/16/2019-test/"/>
-    <id>http://example.com/2018/04/16/2019-test/</id>
+    <link href="http://example.com/2018/04/16/2021-06-22-TestMy/"/>
+    <id>http://example.com/2018/04/16/2021-06-22-TestMy/</id>
     <published>2018-04-16T13:13:00.000Z</published>
     <updated>2018-04-16T15:25:54.000Z</updated>
     

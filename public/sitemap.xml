@@ -4,7 +4,7 @@
   <url>
     <loc>http://example.com/2021/06/27/2018-03-18-ssh/</loc>
     
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     
   </url>
   
@@ -51,23 +51,16 @@
   </url>
   
   <url>
-    <loc>http://example.com/2018/04/16/2019-test/</loc>
+    <loc>http://example.com/2018/04/16/2021-06-22-TestMy/</loc>
     
     <lastmod>2018-04-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2021/06/26/hello-world/</loc>
-    
-    <lastmod>1985-10-26</lastmod>
     
   </url>
   
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -75,42 +68,42 @@
   
   <url>
     <loc>http://example.com/tags/javascript/</loc>
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/gulp/</loc>
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Vue/</loc>
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/protocol/</loc>
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/plugin/</loc>
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/nodejs/</loc>
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -119,42 +112,42 @@
   
   <url>
     <loc>http://example.com/categories/javascript/</loc>
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/gulp/</loc>
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Vue/</loc>
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/protocol/</loc>
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/webpack/</loc>
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/nodejs/</loc>
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

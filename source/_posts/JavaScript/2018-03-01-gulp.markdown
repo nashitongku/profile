@@ -2,8 +2,9 @@
 layout: post
 title:  "gulp 初探"
 date:   2018-03-01 23:14:05 +0800
-categories: gulp
+categories: [构建工具]
 tags: [gulp] 
+comment: off
 excerpt: gulp构建一个小项目
 ---
 
@@ -51,4 +52,3 @@ gulp.task('watchLess',function(){
   
  5.在当前文件目录下打开命令行，输入 `gulp watchLess`。
 
- 
