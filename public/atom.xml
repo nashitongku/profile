@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-06-27T11:51:55.433Z</updated>
+  <updated>2021-06-30T17:08:53.441Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>成熟的命令行要学会自己提交代码</title>
+    <link href="http://example.com/2018/09/01/%E8%87%AA%E5%8A%A8%E5%8C%96-2018-06-29-%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    <id>http://example.com/2018/09/01/%E8%87%AA%E5%8A%A8%E5%8C%96-2018-06-29-%E5%91%BD%E4%BB%A4%E8%A1%8C/</id>
+    <published>2018-09-01T15:14:05.000Z</published>
+    <updated>2021-06-30T17:08:53.441Z</updated>
+    
+    <content type="html"><![CDATA[<p>一、省略重复性提交代码</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#push.bat文件</span></span><br><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;push代码&quot;</span></span><br><span class="line"></span><br><span class="line">git add *</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;git add *&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> /p  var=<span class="string">&quot;输入commit log:&quot;</span></span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">&quot;%var%&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;git commit -m &quot;</span>%var%<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">git push</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;git push&quot;</span></span><br><span class="line"></span><br><span class="line">pause</span><br></pre></td></tr></table></figure><p>二、 自动分支rebase</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">push.bat文件</span></span><br><span class="line">@echo off</span><br><span class="line">set /p  nowBranch=&quot;输入当前分支名:&quot;</span><br><span class="line">set /p  branch=&quot;输入rebase分支名:&quot;</span><br><span class="line"></span><br><span class="line">echo git checkout %branch%</span><br><span class="line">echo git rebase %nowBranch%</span><br><span class="line">echo git checkout %nowBranch%</span><br><span class="line">echo git rebase %branch%</span><br><span class="line"></span><br><span class="line">pause</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">dos命令行</summary>
+    
+    
+    
+    <category term="dos命令行" scheme="http://example.com/categories/dos%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    
+    
+    <category term="dos" scheme="http://example.com/tags/dos/"/>
+    
+    <category term="git" scheme="http://example.com/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>npm script</title>
@@ -155,6 +178,27 @@
     
     
     <summary type="html">javascript原型的理解</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="http://example.com/categories/JavaScript/"/>
+    
+    
+    <category term="javascript" scheme="http://example.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript框架基础知识</title>
+    <link href="http://example.com/2017/09/01/JavaScript-javascript/"/>
+    <id>http://example.com/2017/09/01/JavaScript-javascript/</id>
+    <published>2017-09-01T15:14:05.000Z</published>
+    <updated>2021-07-03T13:17:30.114Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="javascript框架基础知识"><a href="#javascript框架基础知识" class="headerlink" title="javascript框架基础知识"></a>javascript框架基础知识</h1><h3 id="一、this的几种指向"><a href="#一、this的几种指向" class="headerlink" title="一、this的几种指向"></a>一、this的几种指向</h3><ol><li><p>在严格模式下自执行函数指向undefined</p></li><li><p>非严格模式指向自执行函数指向window<br>所以可以用这么判断当前环境是否严格模式</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> !<span class="built_in">this</span>&#125;())</span><br></pre></td></tr></table></figure></li><li><p>在一个函数a里面定义一个函数b，然后在a函数里调用这个函数b，此时this指向跟自执行函数一样</p></li></ol><h3 id="二、new操作做了什么"><a href="#二、new操作做了什么" class="headerlink" title="二、new操作做了什么"></a>二、new操作做了什么</h3><p>模拟new的过程:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> create = <span class="function"><span class="keyword">function</span>(<span class="params">ClassName, ...args</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//让instant.prototype指向ClassName.prototype，缺少这一步新建的实例就没有ClassName原型</span></span><br><span class="line">    <span class="keyword">let</span> instant = <span class="built_in">Object</span>.create(ClassName.prototype)</span><br><span class="line">    ClassName.apply(instant, args)</span><br><span class="line">    <span class="keyword">return</span> instant;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Dragon = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Dragon.prototype.sounds = <span class="string">&#x27;吼吼吼...&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dragon = create(Dragon, <span class="string">&#x27;小明&#x27;</span>)</span><br><span class="line">dragon.name <span class="comment">//小明</span></span><br><span class="line">dragon.sounds <span class="comment">//吼吼吼...</span></span><br></pre></td></tr></table></figure><h3 id="三，Prototype"><a href="#三，Prototype" class="headerlink" title="三，Prototype"></a>三，Prototype</h3><h5 id="定义：每个对象都会有prototype，prototype指向一个对象，类似于java的静态变量继承。"><a href="#定义：每个对象都会有prototype，prototype指向一个对象，类似于java的静态变量继承。" class="headerlink" title="定义：每个对象都会有prototype，prototype指向一个对象，类似于java的静态变量继承。"></a>定义：每个对象都会有prototype，prototype指向一个对象，类似于java的静态变量继承。</h5><ol><li>为什么会有prototype？</li></ol><p>一切都是为了复用和解藕，所有实例共享一个对象a，a对象是所有实例都需要且一样的。</p><ol start="2"><li><p>实例怎么指向原型。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj.__proto__</span><br><span class="line">obj.constructor.prototype</span><br></pre></td></tr></table></figure></li></ol><h3 id="四，原型链"><a href="#四，原型链" class="headerlink" title="四，原型链"></a>四，原型链</h3><p>由于prototype指向一个对象。而js对象都会有自己的原型，对象原型＞对象＞对象原型＞对象…，因此形成了原型链。</p><pre><code>   1. 原型链的尽头是什么呢      每个对象的原型链末端都会经过&lt;u&gt;Object.prototype&lt;/u&gt;，而&lt;u&gt;Object.prototype＝undefined&lt;/u&gt;。      &lt;u&gt;Object.getPrototypeOf(Object.prototype)结果为null&lt;/u&gt;</code></pre><ol start="2"><li><p><strong>Object.prototype不能够被赋值, 会报错</strong></p></li><li><p>instanceof判断对象是否属于某个构造器。</p><p>[^注意]: 1. 只要一个对象的原型不是<code>null</code>，<code>instanceof</code>运算符的判断就不会失真；2. 对于<code>undefined</code>和<code>null</code>，<code>instanceOf</code>运算符总是返回<code>false</code>； 3. instanceof不适用原始类型的值。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line">s <span class="keyword">instanceof</span> <span class="built_in">String</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">undefined</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// false</span></span><br><span class="line"><span class="built_in">this</span> <span class="keyword">instanceof</span> ClassName <span class="comment">//用于判断是否new出来的</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+    <summary type="html">javascript原型,this,new操作，原型链</summary>
     
     
     
