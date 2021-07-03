@@ -3,8 +3,8 @@ html(lang=config.language)
     head
         include head
     body
-        header
-           .header.row 
+        header(style=theme.header.style)
+           .header.row
                 a.logo-link(href=url_for())
                     img(src=theme.logo)
                 include nav
@@ -20,7 +20,7 @@ html(lang=config.language)
                 .right-container
                     if (is_post())
                         include ../widget/catalog
-                    else 
+                    else
                         include ../widget/category
                         include ../widget/tagcloud
                         include ../widget/recent
@@ -38,7 +38,7 @@ html(lang=config.language)
                 block copyright
                 .totop
                     i
-            
+
         include scripts
         if theme.leancloud.timer
             include timer

@@ -16,7 +16,8 @@ show_count: true
 favicon: https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico
 logo: https://z3.ax1x.com/2021/06/27/RYrzNQ.png
 style: https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css
-
+header:
+  style: "background: linear-gradient(to right, #4b6cb7, #182848);box-shadow: 0px 1px 1px #182828;"
 # Comment
 #changyan: bubuzou
 leancloud:
