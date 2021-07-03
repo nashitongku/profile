@@ -1,11 +1,13 @@
-```
+---
 layout: post
 title:  "javascript框架基础知识"
 date:   2017-09-01 23:14:05 +0800
 categories: [JavaScript]
 tags: [javascript] 
 excerpt: "javascript原型,this,new操作，原型链"
-```
+---
+
+
 
 # javascript框架基础知识
 
