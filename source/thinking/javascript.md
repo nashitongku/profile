@@ -1,4 +1,6 @@
-2. # javascript框架基础知识
+2. 
+
+   # javascript框架基础知识
 
    
 
@@ -7,10 +9,10 @@
    ### 一、this的几种指向
 
    1. 在严格模式下自执行函数指向undefined
-
+   
    2. 非严格模式指向自执行函数指向window
       所以可以用这么判断当前环境是否严格模式
-
+   
       ```javascript
       (function(){return !this}())
       ```
@@ -20,7 +22,7 @@
    ### 二、new操作做了什么
 
    模拟new的过程:
-
+   
    ```javascript
    const create = function(ClassName, ...args) {
        //让instant.prototype指向ClassName.prototype，缺少这一步新建的实例就没有ClassName原型
@@ -38,18 +40,61 @@
    dragon.name //小明
    dragon.sounds //吼吼吼...
    ```
+   
+   ### 三，Prototype
+   
+   ##### 定义：每个对象都会有prototype，prototype指向一个对象，类似于java的静态变量继承。
 
-   三，Prototype
-   什么是prototype。js里，每个对象都会有prototype。prototype指向一个对象，类似于java的静态变量继承。
-   为什么会有prototype，一切都是为了复用和解藕，所有实例共享一个对象a，a对象是所有实例都需要且一样的。
-       1.实例怎么指向原型。两种方法，
-       2.
-
-   四，原型链由于prototype指向一个对象。而js对象都会有自己的原型，对象原型＞对象＞对象原型＞对象...，因此形成了原型链。
-       1. 原型链的尽头是什么呢
-   每个对象的原型链末端都会经过Object.prototype，而Object.prototype＝undefined。
-   Object.getPrototypeOf(Object.prototype)结果为null
-
-   2. Object.prototype不能够被赋值。会报错
-
+   1. 为什么会有prototype？
+   
+   一切都是为了复用和解藕，所有实例共享一个对象a，a对象是所有实例都需要且一样的。
+   
+   2. 实例怎么指向原型。
+   
+      ```
+      obj.__proto__
+      obj.constructor.prototype
+      ```
+   
+      
+   
+   ### 四，原型链
+   
+   由于prototype指向一个对象。而js对象都会有自己的原型，对象原型＞对象＞对象原型＞对象...，因此形成了原型链。
+   
+          1. 原型链的尽头是什么呢
+             每个对象的原型链末端都会经过<u>Object.prototype</u>，而<u>Object.prototype＝undefined</u>。
+             <u>Object.getPrototypeOf(Object.prototype)结果为null</u>
+   
+   2. **Object.prototype不能够被赋值, 会报错**
+   
+   3. instanceof判断对象是否属于某个构造器。
+   
+      [^注意]: 1. 只要一个对象的原型不是`null`，`instanceof`运算符的判断就不会失真；2. 对于`undefined`和`null`，`instanceOf`运算符总是返回`false`； 3. instanceof不适用原始类型的值。
+   
+      ```js
+      var s = 'hello';
+      s instanceof String // false
+      undefined instanceof Object // false
+      null instanceof Object // false
+      this instanceof ClassName //用于判断是否new出来的
+      ```
+   
+      
+   
+      
+   
+   ### 五、javacript 奇淫技巧
+   
+   !~判断indexof
+   
+   ```js
+   !取非0都为真
+   ~-1结果为0
+   所以可以用来判断数组是否不包含某个元素
+   if(!~names.indexOf(name)){
+   //...
+   }
+   ```
+   
    
