@@ -1,5 +1,11 @@
 ## 粗略了解TypeScript语法
 
+## 开发环境
+
+轻量服务器：npm install lite-server --save-dev
+
+
+
 ### 接口
 
 ##### 1. 对变量使用
