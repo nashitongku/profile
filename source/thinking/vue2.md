@@ -6,6 +6,14 @@
 
 ##### 1. Object.defineProperty 拦截属性
 
+##### 2. diff算法下的key
+
+
+
+
+
+##### Object.defineProperty 拦截属性
+
 ###### a. 简单实现数据驱动视图
 
 ```js
@@ -54,15 +62,13 @@ observe(data)
 
 
 
-##### 初步完
-
-##### 成一个数据驱动视图，过程： 递归遍历data属性，如果是object类型，则遍历所有属性，对象的属性使用Object.defineProperty拦截处理，当set新值时更新视图。
+##### 初步完成一个数据驱动视图，过程： 递归遍历data属性，如果是object类型，则遍历所有属性，对象的属性使用Object.defineProperty拦截处理，当set新值时更新视图。
 
 ###### 缺点：
 
 1. Object.defineProperty只能拦截属性，data没有的属性，调用observe之后，无法监听；
 
-2. 对象层级太多时，递归性能差；
+2. 对象层级太多时，递归计算量大；
 
 
 
@@ -97,3 +103,19 @@ const observe = function (target) {
     })
 }
 ```
+
+
+
+
+
+##### 2. diff算法下的key
+
+###### 核心：diff算法中通过tag和key判断是否sameNode，减少渲染次数，提高性能。
+
+
+
+##### 3.vue-router两种模式的原理
+
+hash: 监听；如何改变路由
+
+history: 使用这种模式的要求；监听；前进；
