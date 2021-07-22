@@ -1,6 +1,8 @@
 ### vue3.x 新特性
 
-##### 一、组合式api
+##### 一、setup + 组合式api + jsx
+
+优点：在setup闭包内，不需要this，引用清晰。组合式api复用更加灵活。
 
 
 
@@ -52,6 +54,8 @@ export default defineComponent({
 </script>
 
 ```
+
+watchEffect会自动监听函数内的ref、reactive引用。
 
 ##### 四、函数式组件
 
