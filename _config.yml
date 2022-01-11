@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: feng的成长日记
+title: 博客主页
 subtitle: ''
 description: ''
 keywords:
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: fenge
+theme: geek
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
