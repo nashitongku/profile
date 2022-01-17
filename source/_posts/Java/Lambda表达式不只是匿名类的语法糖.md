@@ -1,5 +1,5 @@
 ---
-layout: post
+xhttps://modao.cc/app/3kcgqebes3mtthy2ubde99adic2vmgju#screen=skxst4q841qsk8ulayout: post
 title:  "Lambda表达式不只是匿名类的语法糖"
 date:   2018-06-09
 categories: [java8 java]
