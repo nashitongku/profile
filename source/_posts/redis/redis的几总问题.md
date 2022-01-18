@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "关于redis缓存的问题"
-date:   2019-03-18
-categories: [maven]
-tags: [maven]
-excerpt: Maven依赖管理
+date:   2020-03-18
+categories: [redis]
+tags: [redis]
+excerpt: redis
 
 ---
 

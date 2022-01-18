@@ -1,13 +1,10 @@
 ---
 layout: post
 title:  "记一次docker部署mysql主从复制(单向)"
-date:   2019-04-3
+date:   2020-09-02
 categories: [mysql]
 tags: [mysql]
 excerpt: 记一次docker部署mysql主从复制(单向)
-
-
-
 ---
 
 ### 原理：

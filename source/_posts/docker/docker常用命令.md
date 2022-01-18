@@ -1,3 +1,12 @@
+---
+layout: post
+title:  "docker常用命令"
+date:   2020-06-09
+categories: [docker]
+tags: [docker]
+excerpt: docker命令
+---
+
 ### 一、镜像相关
 
 | command                                                      | describe                                                     |
@@ -31,14 +40,15 @@
 
 ### 三、容器相关
 
-| command                                                      | describe                                                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| docker ps docker ps -as docker ps -l docker ps -n 3          | 查看正在运行的容器 查看全部的容器 上一次运行的容器 上三次运行的容器 |
-| docker start id                                              | 启动容器                                                     |
-| docker stop id                                               | 关闭容器                                                     |
-| docker kill id                                               | 强制停止                                                     |
-| docker rm id                                                 | 删除容器                                                     |
-| docker rm -f id                                              | 强制删除容器                                                 |
-| docker exec -it id xxx docker exec -it id /bin/bash          | 在容器外面去执行一个命令，xxx 就是你要执行的命令 进入某个容器 |
-| ctrl+p+Q                                                     | 退出不关闭容器                                               |
-| docker inspect --format=’{{.NetworkSettings.IPAddress}}’ 容器名称/容器id | 查看容器独立ip                                               |
+| command                                             | describe                                                     |
+| :-------------------------------------------------- | ------------------------------------------------------------ |
+| docker ps docker ps -as docker ps -l docker ps -n 3 | 查看正在运行的容器 查看全部的容器 上一次运行的容器 上三次运行的容器 |
+| docker start id                                     | 启动容器                                                     |
+| docker stop id                                      | 关闭容器                                                     |
+| docker kill id                                      | 强制停止                                                     |
+| docker rm id                                        | 删除容器                                                     |
+| docker rm -f id                                     | 强制删除容器                                                 |
+| docker exec -it id xxx docker exec -it id /bin/bash | 在容器外面去执行一个命令，xxx 就是你要执行的命令 进入某个容器 |
+| ctrl+p+Q                                            | 退出不关闭容器                                               |
+|                                                     |                                                              |
+
