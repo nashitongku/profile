@@ -9,7 +9,26 @@ excerpt: 关于mysql优化
 
 ---
 
-## 否定查询不能使用索引
+### 索引列的顺序
+
+**索引的选择性**是指: 不重复的索引值数和记录总数的比值。
+
+让选择性最强的索引列放在前面。例如下面显示的结果中 customer_id 的选择性比 staff_id 更高，因此最好把 customer_id 列放在多列索引的前面。
+
+```sql
+SELECT COUNT(DISTINCT staff_id)/COUNT(*) AS staff_id_selectivity,
+COUNT(DISTINCT customer_id)/COUNT(*) AS customer_id_selectivity,
+COUNT(*)
+FROM payment;
+```
+
+```html
+   staff_id_selectivity: 0.0001
+customer_id_selectivity: 0.0373
+               COUNT(*): 16049
+```
+
+### 否定查询不能使用索引
 
 ```sql
 select name from user where id not in (1,3,4);
@@ -51,15 +70,15 @@ select name from user where name like 'zhangsan%'
 
 建议可以考虑使用 `Lucene` 等全文索引工具来代替频繁的模糊查询。
 
-## 数据区分不明显的不建议创建索引
+### 数据区分不明显的不建议创建索引
 
 如 user 表中的性别字段，可以明显区分的才建议创建索引，如身份证等字段。
 
-## 字段的默认值不要为 null
+### 字段的默认值不要为 null
 
 这样会带来和预期不一致的查询结果。
 
-## 在字段上进行计算不能命中索引
+### 在字段上进行计算不能命中索引
 
 ```sql
 select name from user where FROM_UNIXTIME(create_time) < CURDATE();
