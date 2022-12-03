@@ -1,3 +1,5 @@
+
+
 准备：
 
 一、语法顺序 与 执行顺序
@@ -37,11 +39,9 @@ LIMIT <行数限制>
 二、模糊搜索
 
 - 使用MySQL内置函数INSTR(str,substr) 来匹配
-- 使用FullText全文索引，用match against 检索
+- 使用FullText全文索引，用match against 检索(默认是2个, 可以配置最少多少长度的索引，但是需要重新建索引，)
 
-
-
-
+![image-20220907211537979](/Users/iamfenges/Library/Application Support/typora-user-images/image-20220907211537979.png)
 
 三、**导致效率低下的情况**
 
@@ -52,3 +52,6 @@ LIMIT <行数限制>
 - **自动进行类型转换**
   1. 
 
+## explain介绍
+
+![image-20220907210204806](/Users/iamfenges/Library/Application Support/typora-user-images/image-20220907210204806.png)

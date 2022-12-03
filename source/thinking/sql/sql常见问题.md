@@ -20,3 +20,9 @@
 
 
 4. 逗号拼接ID，select GROUP_CONCAT(id) from sys_menu
+4. mac关闭mysql: sudo /usr/local/mysql/bin/mysqladmin -u root -pzxcv1234 shutdown
+4. mac开启: sudo /usr/local/MySQL/support-files/mysql.server start
+
+7.多种启动方式
+
+systemctl restart mysqld

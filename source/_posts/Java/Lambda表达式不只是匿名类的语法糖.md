@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Lambda表达式不只是匿名类的语法糖"
-date:   2019-06-09
+date:   2020-06-09
 categories: [java8 java]
 tags: [java java8]
 excerpt: Lambda表达式不只是匿名类的语法糖

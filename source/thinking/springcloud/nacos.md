@@ -1,5 +1,7 @@
 1.参考：https://juejin.cn/post/6974921087922470926
 
+
+
 启动：  sh startup.sh -m standalone
 
 

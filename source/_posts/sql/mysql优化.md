@@ -1,12 +1,10 @@
 ---
 layout: post
 title:  "关于mysql优化"
-date:   2019-04-3
+date:   2020-07-8
 categories: [mysql]
 tags: [mysql]
 excerpt: 关于mysql优化
-
-
 ---
 
 ### 索引列的顺序
@@ -32,40 +30,24 @@ customer_id_selectivity: 0.0373
 
 ```sql
 select name from user where id not in (1,3,4);
-
-  
-        @pdai: 代码已经复制到剪贴板
-    
 ```
 
 应该修改为:
 
 ```text
 select name from user where id in (2,5,6);
-
-  
-        @pdai: 代码已经复制到剪贴板
-    
 ```
 
 前导模糊查询不能使用索引, 如:
 
 ```sql
 select name from user where name like '%zhangsan'
-
-  
-        @pdai: 代码已经复制到剪贴板
-    
 ```
 
 非前导则可以:
 
 ```sql
 select name from user where name like 'zhangsan%'
-
-  
-        @pdai: 代码已经复制到剪贴板
-    
 ```
 
 建议可以考虑使用 `Lucene` 等全文索引工具来代替频繁的模糊查询。
@@ -82,20 +64,12 @@ select name from user where name like 'zhangsan%'
 
 ```sql
 select name from user where FROM_UNIXTIME(create_time) < CURDATE();
-
-  
-        @pdai: 代码已经复制到剪贴板
-    
 ```
 
 应该修改为:
 
 ```sql
 select name from user where create_time < FROM_UNIXTIME(CURDATE());
-
-  
-        @pdai: 代码已经复制到剪贴板
-    
 ```
 
 ## 最左前缀问题
@@ -108,20 +82,12 @@ select username from user where username='zhangsan' and pwd ='axsedf1sd'
 select username from user where pwd ='axsedf1sd' and username='zhangsan'
 
 select username from user where username='zhangsan'
-
-  
-        @pdai: 代码已经复制到剪贴板
-    
 ```
 
 但是使用
 
 ```sql
 select username from user where pwd ='axsedf1sd'
-
-  
-        @pdai: 代码已经复制到剪贴板
-    
 ```
 
 是不能命中索引的。
@@ -130,10 +96,6 @@ select username from user where pwd ='axsedf1sd'
 
 ```sql
 select name from user where username='zhangsan' limit 1
-
-  
-        @pdai: 代码已经复制到剪贴板
-    
 ```
 
 可以提高效率，可以让数据库停止游标移动。
@@ -142,20 +104,12 @@ select name from user where username='zhangsan' limit 1
 
 ```sql
 select name from user where telno=18722222222
-
-  
-        @pdai: 代码已经复制到剪贴板
-    
 ```
 
 这样虽然可以查出数据，但是会导致全表扫描。需要修改为
 
-```text
+```sql
 select name from user where telno='18722222222'
-
-  
-        @pdai: 代码已经复制到剪贴板
-    
 ```
 
 如果需要进行 join 的字段两表的字段类型要相同, 不然也不会命中索引

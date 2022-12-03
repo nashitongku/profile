@@ -4,5 +4,7 @@
     <mapping directory="$PROJECT_DIR$/../../feng-ui" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/themes/fenge" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/geek" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/jsimple" vcs="Git" />
   </component>
 </project>
